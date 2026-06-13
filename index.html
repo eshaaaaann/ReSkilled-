@@ -397,34 +397,80 @@
         }
 
         
-/* Course Progress Bar */
-.progress-container {
-    margin: 1rem 0;
-}
+        /* Course Progress Bar */
+        .progress-container {
+            margin: 1rem 0;
+        }
 
-.progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-}
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
 
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background: #e9ecef;
-    border-radius: 20px;
-    overflow: hidden;
-}
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 20px;
+            overflow: hidden;
+        }
 
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #3498db, #667eea);
-    border-radius: 20px;
-    transition: width 0.4s ease;
-}
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #667eea);
+            border-radius: 20px;
+        }
+
+        .contact-email {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
 
 
         /* CTA Section */
@@ -500,8 +546,8 @@
     <nav>
         <div class="logo">ReSkilled</div>
         <div class="auth-buttons">
-            <button class="btn btn-login">Login</button>
-            <button class="btn btn-register">Register</button>
+            <button class="btn btn-login" onclick="openLoginModal()">Login</button>
+            <button class="btn btn-register" onclick="openRegisterModal()">Register</button>
         </div>
     </nav>
 
@@ -604,18 +650,16 @@
                             <span>⏱️ Duration: 25 mins</span>
                             <span>✅ Certificate: Yes</span>
                         </div>
-                        
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>Progress</span>
-            <span>65%</span>
+                        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>65%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:65%;"></div>
+            </div>
         </div>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 65%;"></div>
-        </div>
-    </div>
-
-    <button class="btn-course">Continue Learning</button>
+        <button class="btn-course">Continue Learning</button>
                     </div>
                 </div>
 
@@ -630,18 +674,16 @@
                             <span>⏱️ Duration: 30 mins</span>
                             <span>✅ Certificate: Yes</span>
                         </div>
-                        
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>Progress</span>
-            <span>40%</span>
+                        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>40%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:40%;"></div>
+            </div>
         </div>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 40%;"></div>
-        </div>
-    </div>
-
-    <button class="btn-course">Continue Learning</button>
+        <button class="btn-course">Continue Learning</button>
                     </div>
                 </div>
 
@@ -656,18 +698,16 @@
                             <span>⏱️ Duration: 20 mins</span>
                             <span>✅ Certificate: Yes</span>
                         </div>
-                        
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>Progress</span>
-            <span>85%</span>
+                        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>85%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:85%;"></div>
+            </div>
         </div>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 85%;"></div>
-        </div>
-    </div>
-
-    <button class="btn-course">Continue Learning</button>
+        <button class="btn-course">Continue Learning</button>
                     </div>
                 </div>
 
@@ -682,18 +722,16 @@
                             <span>⏱️ Duration: 28 mins</span>
                             <span>✅ Certificate: Yes</span>
                         </div>
-                        
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>Progress</span>
-            <span>25%</span>
+                        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>25%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:25%;"></div>
+            </div>
         </div>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 25%;"></div>
-        </div>
-    </div>
-
-    <button class="btn-course">Continue Learning</button>
+        <button class="btn-course">Continue Learning</button>
                     </div>
                 </div>
 
@@ -708,18 +746,16 @@
                             <span>⏱️ Duration: 30 mins</span>
                             <span>✅ Certificate: Yes</span>
                         </div>
-                        
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>Progress</span>
-            <span>55%</span>
+                        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>55%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:55%;"></div>
+            </div>
         </div>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 55%;"></div>
-        </div>
-    </div>
-
-    <button class="btn-course">Continue Learning</button>
+        <button class="btn-course">Continue Learning</button>
                     </div>
                 </div>
 
@@ -734,18 +770,16 @@
                             <span>⏱️ Duration: 22 mins</span>
                             <span>✅ Certificate: Yes</span>
                         </div>
-                        
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>Progress</span>
-            <span>90%</span>
+                        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>90%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:90%;"></div>
+            </div>
         </div>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 90%;"></div>
-        </div>
-    </div>
-
-    <button class="btn-course">Continue Learning</button>
+        <button class="btn-course">Continue Learning</button>
                     </div>
                 </div>
             </div>
@@ -819,7 +853,7 @@
             <p>Be part of the change. Let's empower every teacher with the skills and confidence to shape the future of learning.</p>
             <div class="hero-buttons">
                 <button class="btn btn-primary">🔗 Sign Up / Get Started</button>
-                <button class="btn btn-secondary">📩 Contact Us</button>
+                <div class="contact-email">📧 alieshaan608@gmail.com</div>
             </div>
             
             <div style="margin-top: 3rem;">
@@ -828,7 +862,29 @@
         </section>
     </div>
 
-    <!-- Footer -->
+    
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Login</h2>
+        <input type="email" placeholder="Email" class="form-input">
+        <input type="password" placeholder="Password" class="form-input">
+        <button class="btn btn-register" style="width:100%;margin-top:10px;">Login</button>
+    </div>
+</div>
+
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Full Name" class="form-input">
+        <input type="email" placeholder="Email" class="form-input">
+        <input type="password" placeholder="Password" class="form-input">
+        <button class="btn btn-register" style="width:100%;margin-top:10px;">Register</button>
+    </div>
+</div>
+
+<!-- Footer -->
     <footer>
         <div class="footer-links">
             <a href="#">About</a>
@@ -840,20 +896,33 @@
         <p style="margin-top: 1rem; opacity: 0.8;">&copy; 2024 ReSkilled. Empowering educators for a better tomorrow.</p>
     </footer>
 
-    <script>
-        function goToPage(pageNumber) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.style.display = 'none';
-            });
-            
-            // Show selected page
-            document.getElementById('page' + pageNumber).style.display = 'block';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    
+<script>
+function goToPage(pageNumber){
+    document.querySelectorAll('.page').forEach(page=>page.style.display='none');
+    document.getElementById('page'+pageNumber).style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openLoginModal(){
+    document.getElementById('loginModal').style.display='block';
+}
+
+function openRegisterModal(){
+    document.getElementById('registerModal').style.display='block';
+}
+
+function closeModal(id){
+    document.getElementById(id).style.display='none';
+}
+
+window.onclick=function(event){
+    const login=document.getElementById('loginModal');
+    const register=document.getElementById('registerModal');
+    if(event.target===login) login.style.display='none';
+    if(event.target===register) register.style.display='none';
+}
+</script>
+
 </body>
 </html>
