@@ -653,13 +653,13 @@
                         <div class="progress-container">
             <div class="progress-label">
                 <span>Progress</span>
-                <span>65%</span>
+                <span>100%</span>
             </div>
             <div class="progress-bar">
-                <div class="progress-fill" style="width:65%;"></div>
+                <div class="progress-fill" style="width:100%;"></div>
             </div>
         </div>
-        <button class="btn-course">Continue Learning</button>
+        <button class="btn-course" onclick="showCertificate('Digital Teaching Tools Basics')">🏆 View Certificate</button>
                     </div>
                 </div>
 
@@ -877,10 +877,34 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('registerModal')">&times;</span>
         <h2>Create Account</h2>
-        <input type="text" placeholder="Full Name" class="form-input">
+        <input type="text" id="registerName" placeholder="Full Name" class="form-input">
         <input type="email" placeholder="Email" class="form-input">
         <input type="password" placeholder="Password" class="form-input">
-        <button class="btn btn-register" style="width:100%;margin-top:10px;">Register</button>
+        <button class="btn btn-register" style="width:100%;margin-top:10px;" onclick="registerUser()">Register</button>
+    </div>
+</div>
+
+
+<div id="certificateModal" class="modal">
+    <div class="modal-content" style="max-width:700px;text-align:center;">
+        <span class="close" onclick="closeModal('certificateModal')">&times;</span>
+        <div id="certificate">
+            <h1 style="color:#3498db;">Certificate of Completion</h1>
+            <hr style="margin:20px 0;">
+            <p>This is to certify that</p>
+            <h2 id="certificateName">Teacher Name</h2>
+            <p>has successfully completed the course</p>
+            <h3 id="certificateCourse">Course Name</h3>
+            <p>through the ReSkilled Professional Development Platform.</p>
+            <br>
+            <p><strong>Date:</strong> <span id="certificateDate"></span></p>
+            <br>
+            <h3>ReSkilled</h3>
+            <p>Empowering Teachers. Elevating Education.</p>
+        </div>
+        <button class="btn btn-register" onclick="downloadCertificate()">
+            Download Certificate
+        </button>
     </div>
 </div>
 
@@ -922,6 +946,29 @@ window.onclick=function(event){
     if(event.target===login) login.style.display='none';
     if(event.target===register) register.style.display='none';
 }
+
+function registerUser(){
+    const name=document.getElementById('registerName');
+    if(name){ localStorage.setItem('teacherName', name.value); }
+    alert('Registration Successful!');
+}
+
+function showCertificate(courseName){
+    const teacherName=localStorage.getItem('teacherName') || 'Teacher';
+    document.getElementById('certificateName').innerText=teacherName;
+    document.getElementById('certificateCourse').innerText=courseName;
+    document.getElementById('certificateDate').innerText=new Date().toLocaleDateString();
+    document.getElementById('certificateModal').style.display='block';
+}
+
+function downloadCertificate(){
+    const certificate=document.getElementById('certificate');
+    const w=window.open('','','width=900,height=700');
+    w.document.write('<html><head><title>Certificate</title></head><body style="text-align:center;padding:50px;font-family:Arial;">'+certificate.innerHTML+'</body></html>');
+    w.document.close();
+    w.print();
+}
+
 </script>
 
 </body>
